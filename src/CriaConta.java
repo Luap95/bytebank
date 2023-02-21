@@ -2,18 +2,23 @@ public class CriaConta {
     public static void main(String[] args) {
         Conta primeiraConta = new Conta();
         primeiraConta.titular = "Lucas";
-        primeiraConta.saldo = 200.00;
+        primeiraConta.deposita(200);
 
-        System.out.println(primeiraConta.saldo);
+        System.out.println(primeiraConta.getSaldo());
 
-        primeiraConta.saldo += 300.00;
-        System.out.println(primeiraConta.saldo);
+        primeiraConta.deposita(300);
+        System.out.println(primeiraConta.getSaldo());
 
         Conta segundaConta = new Conta();
         segundaConta.titular = "Fabíola";
-        segundaConta.saldo = 50.00;
+        segundaConta.deposita(50);
 
-        System.out.println("O saldo da conta do(a) " + primeiraConta.titular + " é de R$" + primeiraConta.saldo);
-        System.out.println("O saldo da conta do(a) " + segundaConta.titular + " é de R$" + segundaConta.saldo);
+        System.out.println("O saldo da conta do(a) " + primeiraConta.titular + " é de R$" + primeiraConta.getSaldo());
+        System.out.println("O saldo da conta do(a) " + segundaConta.titular + " é de R$" + segundaConta.getSaldo());
+
+        primeiraConta.transfere(100, segundaConta);
+
+        System.out.println("O saldo da conta do(a) " + primeiraConta.titular + " é de R$" + primeiraConta.getSaldo());
+        System.out.println("O saldo da conta do(a) " + segundaConta.titular + " é de R$" + segundaConta.getSaldo());
     }
 }
