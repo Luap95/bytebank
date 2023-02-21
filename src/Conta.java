@@ -2,7 +2,17 @@ public class Conta{
     private double saldo;
     private int agencia;
     private int numero;
-    private Cliente titular;
+    private Cliente titular = new Cliente();
+
+    private static int totalContas = 0;
+
+    public Conta(int agencia, int numero){
+        totalContas++;
+        this.agencia = agencia;
+        this.numero = numero;
+        this.saldo = 100;
+        System.out.println("Estou criando uma conta");
+    }
 
     public void deposita(double valor){
         this.saldo += valor;
@@ -41,6 +51,10 @@ public class Conta{
 
     public Cliente getTitular() {
         return this.titular;
+    }
+
+    public static int getTotalContas() {
+        return totalContas;
     }
 
     public void setAgencia(int agencia) {
